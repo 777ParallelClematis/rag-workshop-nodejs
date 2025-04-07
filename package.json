@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A hands-on workshop project where NMIT BIT students and high school students collaborate to build a smart backend chatbot API using Node.js, Express, and OpenAI — powered by Retrieval-Augmented Generation (RAG). Includes live coding, AI integration, and animated frontend responses.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start:dev": "nodemon server/index.js",
     "test": "jest"
@@ -25,7 +26,11 @@
   },
   "dependencies": {
     "body-parser": "^2.2.0",
+    "dotenv": "^16.4.7",
     "express": "^5.1.0",
     "openai": "^4.91.1"
+  },
+  "directories": {
+    "test": "test"
   }
 }
