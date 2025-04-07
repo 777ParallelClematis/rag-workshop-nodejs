@@ -4,24 +4,29 @@
  * - Serves static frontend
  * - Mounts API routes: /api/chat and /api/search
  */
-import express from 'express'
-import path from 'path' 
+
+import express from 'express';
+import path, { dirname, join } from 'path';
+import { fileURLToPath } from 'url';
+import * as dotenv from 'dotenv';
+
+import chatRoute from './routes/chat.js';
+import searchRoute from './routes/search.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 // Load environment variables
-import * as dotenv from 'dotenv'
-dotenv.config()
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware to handle JSON and static files
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '/public')));
+app.use(express.static(join(__dirname, 'public')));
 
-// Import and use API routes
-const chatRoute = require('./routes/chat');
-const searchRoute = require('./routes/search');
-
+// API routes
 app.use('/api/chat', chatRoute);
 app.use('/api/search', searchRoute);
 
