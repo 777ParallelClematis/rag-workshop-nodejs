@@ -2,6 +2,13 @@
 // TODO: Search knowledgeBase for a match
 // TODO: Return result or 404
 
+/**
+ * Route: POST /api/search
+ * - Accepts a query string
+ * - Searches knowledgeBase for a matching question
+ * - Returns the matching item or a message if not found
+ */
+
 const express = require('express');
 const router = express.Router();
 const knowledgeBase = require('../data/knowledgeBase');
