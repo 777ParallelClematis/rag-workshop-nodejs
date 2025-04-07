@@ -5,3 +5,12 @@
 
 
 // TODO: Use openai.createCompletion() to generate response
+
+import express from 'express';
+const router = express.Router();
+
+router.post('/', (req, res) => {
+  res.json({ message: 'Mock AI response' });
+});
+
+export default router; // ← this is critical

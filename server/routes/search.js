@@ -8,12 +8,13 @@
  * - Searches knowledgeBase for a matching question
  * - Returns the matching item or a message if not found
  */
+// routes/search.js
 
-const express = require('express');
+import express from 'express';
+import knowledgeBase from '../data/knowledgeBase.js';
+
 const router = express.Router();
-const knowledgeBase = require('../data/knowledgeBase');
 
-// POST endpoint to search the knowledge base
 router.post('/', (req, res) => {
   const query = req.body.query?.toLowerCase();
 
@@ -21,7 +22,6 @@ router.post('/', (req, res) => {
     return res.status(400).json({ error: "Query is required." });
   }
 
-  // Find first match in the knowledge base
   const result = knowledgeBase.find(item =>
     item.question.toLowerCase().includes(query)
   );
@@ -33,4 +33,4 @@ router.post('/', (req, res) => {
   }
 });
 
-module.exports = router;
+export default router; 

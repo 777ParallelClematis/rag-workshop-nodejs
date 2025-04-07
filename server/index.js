@@ -8,7 +8,7 @@
 import express from 'express';
 import path, { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
-//import * as dotenv from 'dotenv';
+import * as dotenv from 'dotenv'; // ✅ DON'T COMMENT THIS OUT
 
 import chatRoute from './routes/chat.js';
 import searchRoute from './routes/search.js';
